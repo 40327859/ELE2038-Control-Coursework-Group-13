@@ -210,7 +210,7 @@ If we expand out the denominator, we get:
 \\
 If we now substitute our constants into this, we get the transfer function.
 \begin{equation}
-    G = - \frac{4562.9988239068}{s^3 + 15174.9010197085s^2 + 243531.996259953s - 3169857.09321053}
+    G = \frac{4562.9988239068}{s^3 + 15174.9010197085s^2 + 243531.996259953s - 3169857.09321053}
 \end{equation}
 \\
 And if we calculate the poles of this, we get:
