@@ -1,0 +1,29 @@
+~\\
+\section{Simulation}
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=1.0\linewidth]{Simulation/Impulse Plot no pid.png}
+        \caption{Impulse response of the transfer function.}
+    \end{minipage}
+    \begin{minipage}{0.49\textwidth}
+        \centering
+       \includegraphics[width=1.0\linewidth]{Simulation/Step Plot no pid.png}
+        \caption{Step response of the transfer function.}
+    \end{minipage}
+\end{figure}
+
+\noindent According to the Figure of impulse response of the transfer function, When an instantaneous impact is applied to the system, the ball starts to move down the inclined plane  with increasing speed and acceleration. From the Figure of Step response of the transfer function, its situation is similar to the previous one, but with slower speed and acceleration. This illustrates the instability of a system without a controller.
+\medskip
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=1.1\linewidth]{Simulation/PID + Laser Both Step and Impulse plot.png}
+        \caption{The impulse and step responses of the system.}
+    \end{minipage}
+\end{figure}
+
+
+\noindent From the Figure of the impulse and step responses of the system, the line of impulse responses shows that The ball will move down the inclined plane between 0 and 0.1s and then move upwards to a position 0.05mm from the equilibrium position. the step of impulse responses shows that when a constant force is applied to the system, the ball will move down the inclined plane and stabilise at a distance of 2.1mm from the equilibrium position.Therefore, it can be seen that the controller has a good control effect.
