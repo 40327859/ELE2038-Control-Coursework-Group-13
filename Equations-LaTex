@@ -88,7 +88,7 @@ We can now rewrite all our equations and put them in this form:
 \end{bmatrix} 
 \end{equation}
 \section{Equilibrium}
-*******************************Describe what modelling is*********************************
+*******************************Describe what equilibrium is*********************************
 If we set all the derivatives of our variables to 0 at our equilibrium values, we get
 \begin{align}
     0 &= x_2^{e}\\
@@ -101,7 +101,7 @@ Since we are told that $x^e_1 = 0.5$ , since it is stationary at this point, we 
 \end{equation}
 If we subsitute our constant values we get $x_3 = 0.707488266645418 $ A.
 \section{Linearisation} 
-*******************************Describe what modelling is*********************************
+*******************************Describe what linearisation is*********************************
 To linearise, we use \texttt{sympy} to determine the partial derivatives of the system dynamics with respect to the states and the input. We define
 \begin{equation}
     \phi = \frac{5}{7m}  \left(mg\sin{\phi} + c\frac{x_3^{e2}}{(\delta - x_1^{e})^2} -k(x_1^{e}-d) -bx_2^{e}   \right)
@@ -149,7 +149,7 @@ Then if we take $(x - x^e) = \Bar{x} $ and rewrite the equations in terms of $\B
     E\Bar{x}_3 + F\Bar{v}
 \end{align}
 \section{Transfer Function}
-*******************************Describe what modelling is*********************************
+*******************************Describe what transfer function is*********************************
 When we apply the Laplace Transforms, we get the following:
 \begin{align}
     s\Bar{X}_1 &= \Bar{X}_2
