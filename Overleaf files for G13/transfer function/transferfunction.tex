@@ -1,0 +1,77 @@
+~\\
+The transfer function mathematically models the system’s output for each input. The stability of the system
+can be analysed by calculating the poles and zeros of the transfer function.
+\subsection*{Applying the Laplace Transform} \hfill \\
+When we apply the Laplace Transforms, we get the following:
+\begin{align}
+    s\Bar{X}_1 &= \Bar{X}_2
+    \\
+    s\Bar{{X}}_2 &= A\Bar{X}_1 + 
+    B\Bar{X}_2 + C\Bar{X}_3
+    \\
+    s\Bar{X}_3 &= D\Bar{X}_1 + 
+    E\Bar{X}_3 + F\Bar{v}
+\end{align}
+If we substitute the constants into these values for A, B, C, D, E and F we find that:
+\begin{align*}
+    A &= \ \ 209.109726489592
+    \\
+    B &= -16.0791589363018
+    \\
+    C &= \ \ 662.228074503118
+    \\
+    D &=\ \ 0
+    \\
+    E &= -15158.8218607722
+    \\
+    F &= \ \ 6.89037357307828
+\end{align*}
+If we take into consideration that D is now 0, we can rewrite the equations.
+\subsection*{Calculating the Transfer Function}
+\begin{align}
+    s\Bar{X}_1 &= \Bar{X}_2
+    \\
+    s\Bar{{X}}_2 &= A\Bar{X}_1 + 
+    B\Bar{X}_2 + C\Bar{X}_3
+    \\
+    s\Bar{X}_3 &= E\Bar{X}_3 + F\Bar{v}
+\end{align}
+If we substitute equation (4.4) into equation (4.5), we get:
+\begin{equation}
+    s^2X_1 = AX_1 + BsX_1 + CX_3
+\end{equation}
+Rearranging for $X_3 $, we get:
+\begin{equation}
+    \Bar{X}_3 = \frac{(s^2-A-Bs)X_1}{C}
+\end{equation}
+If we rearrange equation (4.6) into terms of $X_3 $, we get:
+\begin{equation}
+    \Bar{X}_3 = \frac{F\Bar{V}}{(s-E)}
+\end{equation}
+Now we will equate equations 4.8 and 4.9 with getting:
+\begin{equation}
+    \frac{(s^2-A-Bs)X_1}{C} = \frac{F\Bar{V}}{(s-E)}
+\end{equation}
+To get this into the Transfer function, it needs to be in the form $\frac{\Bar{X}_1}{\Bar{V}}$, which is:
+\begin{equation*}
+    G = \frac{FC}{(s^2-A-Bs)(s - E)}
+\end{equation*}
+If we expand out the denominator, we get:
+\begin{equation}
+    G = \frac{FC}{s^3 - (B - E)s^2 +(B-A)s + AE}
+\end{equation}
+\\
+If we now substitute our constants into this, we get the transfer function.
+\begin{equation}
+    G =\frac{4562.9988239068}{s^3 + 15174.9010197085s^2 + 243531.996259953s - 3169857.09321053}
+\end{equation}
+\subsection*{Checking BIBO Stability} \hfill \\
+And if we calculate the poles of this, we get:
+\begin{align}
+    S1 &= -15158.8218607722
+    \\
+    S2 &= -24.5848073153069
+    \\
+    S3 &=\ \ 8.50564837900509
+\end{align}
+As we can see, two of the poles in the transfer function lie in the left half of the complex plane, but $S3 $ doesn't, so this is not BIBO stable, which means we will need to configure PID values in order to get it stable.

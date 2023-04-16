@@ -1,0 +1,20 @@
+\noindent The sensor can be described by the first-order differential equation 
+\begin{equation}
+a_{\text{0}}x+a_{\text{1}}\dot{x}=bu
+\end{equation}
+\noindent From the questions $a_{\text{0}}\neq0$
+\begin{equation}
+x+\frac{a_{\text{1}}}{a_{\text{0}}}\dot{x}=\frac{b}{a_{\text{0}}}u
+\end{equation}
+\noindent Substitute time constant $\tau=\frac{a_{\text{1}}}{a_{\text{0}}}$ and static gain $K=\frac{b}{a_{\text{0}}}$ into the equation.
+\begin{equation}
+x+\tau\dot{x}=Ku
+\end{equation}
+\noindent Apply the Laplace transform on the both sides of the equation assuming zero initial conditions
+\begin{equation}
+(1+{\tau}s)X(s)=KU(s)
+\end{equation}
+\noindent Therefore, the transfer function of the sensor is
+\begin{equation}
+G(s)=\frac{X(s)}{U(s)}=\frac{K}{{\tau}s+1}
+\end{equation}

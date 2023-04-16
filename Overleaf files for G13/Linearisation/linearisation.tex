@@ -1,0 +1,56 @@
+
+\section{Linearisation} 
+Linearisation is used to approximate a linear system from a non-linear system. This linear system can be
+found at the system’s equilibrium point. This allows us to analyse the system’s behaviour around the set point
+and it is easier to analyse a linear system rather than a non-linear system.
+To linearise, we use \texttt{sympy} to determine the partial derivatives of the system dynamics with respect to the states and the input. We define
+\begin{equation}
+    \phi = \frac{5}{7m}  \left(mg\sin{\phi} + c\frac{x_3^{e2}}{(\delta - x_1^{e})^2} -k(x_1^{e}-d) -bx_2^{e}   \right)
+\end{equation}
+\subsection*{Partial Derivatives of Phi}
+\hfill \\
+When we partially derive each equation, we get:
+\begin{align}
+\left.\frac{\partial \phi}{\partial x_1}\right|_{x_1^e, x_2^e, x_3^e,v^e} ={}& \frac{5 \left(\frac{2 c x_{3}^{2}}{\left(\delta - x_{1}\right)^{3}} - k\right)}{7 m}
+\\
+\left.\frac{\partial \phi}{\partial x_2}\right|_{x_1^e, x_2^e, x_3^e,v^e} ={}&  - \frac{5 b}{7 m}
+\\
+\left.\frac{\partial \phi}{\partial x_3}\right|_{x_1^e, x_2^e, x_3^e,v^e} ={}&  \frac{10 c x_{3}}{7 m \left(\delta - x_{1}\right)^{2}}
+\\
+\end{align}
+\subsection*{Partial Derivatives of Psi} \hfill \\
+\begin{equation}
+    \psi = \frac{v - x_3R}{L_0 + L_1e^{-\alpha (\delta - x_1)^2}}
+\end{equation}
+When we partially derive each equation, we get:
+\begin{align}
+\left.\frac{\partial \psi}{\partial x_1}\right|_{x_1^e, x_2^e, x_3^e,v^e} ={}& - \frac{L_{1} \alpha \left(- R x_{3}^e + v\right) e^{- \alpha \left(\delta - x_{1}^e\right)}}{\left(L_{0} + L_{1} e^{- \alpha \left(\delta - x_{1}^e\right)}\right)^{2}}
+\\
+\left.\frac{\partial \psi}{\partial x_3}\right|_{x_1^e, x_2^e, x_3^e,v^e} ={}& - \frac{R}{L_{0} + L_{1} e^{- \alpha \left(\delta - x_{1}^e\right)}}
+\\
+\left.\frac{\partial \psi}{\partial v}\right|_{x_1^e, x_2^e, x_3^e,v^e} ={}& \frac{1}{L_{0} + L_{1} e^{- \alpha \left(\delta - x_{1}^e\right)}}
+\\
+\end{align}
+\subsection*{Linearised Equations
+}\hfill \\
+Thus $\phi $ is:
+\begin{equation}
+    \phi \approx \underbrace{\frac{5 \left(\frac{2 c x_{3}^{e2}}{\left(\delta - x_{1}^e\right)^{3}} - k\right)}{7 m}}_A(x_1 - {x^e}_1) + \underbrace{\frac{-5 b}{7 m}}_B(x_2 - {x^e}_2) +  \underbrace{\frac{10 c x_{3}^e}{7 m \left(\delta - x_{1}^e\right)^{2}}}_C (x_3 - {x^e}_3)
+\end{equation}
+Thus $\psi $ is:
+\\
+\begin{equation}
+    \psi \approx \underbrace{ \frac{-L_{1} \alpha \left(- R x_{3}^e + v\right) e^{- \alpha \left(\delta - x_{1}^e\right)}}{\left(L_{0} + L_{1} e^{- \alpha \left(\delta - x_{1}^e\right)}\right)^{2}}}_D(x_1 - {x^e}_1) + \underbrace{ \frac{-R}{L_{0} + L_{1} e^{- \alpha \left(\delta - x_{1}^e\right)}}}_E(x_2 - {x^e}_2) + \underbrace{\frac{1}{L_{0} + L_{1} e^{- \alpha \left(\delta - x_{1}^e\right)}}}_F (x_3 - {x^e}_3)
+\end{equation}
+\\
+Then if we take $(x - x^e) = \Bar{x} $ and rewrite the equations in terms of $\Bar{x} $ we get:
+\begin{align}
+    \Bar{\Dot{x}}_1 &= \Bar{x}_2
+    \\
+    \Bar{\Dot{x}}_2 &= A\Bar{x}_1 + 
+    B\Bar{x}_2 + C\Bar{x}_3
+    \\
+    \Bar{\Dot{x}}_3 &= D\Bar{x}_1 + 
+    E\Bar{x}_3 + F\Bar{v}
+\end{align}
+\section{Transfer Function}
